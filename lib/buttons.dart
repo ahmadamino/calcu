@@ -14,17 +14,13 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: buttonTapeed,
-      child: ClipRRect(
-           borderRadius: BorderRadius.circular(150),
-          child: Container(
-            color: color,
-            child: Center(
-              child: Text(
-                buttonText,
-                style: TextStyle(color: textColor,fontSize: 35),
-              ),
-            ),
-          ),)
+      backgroundColor: color,
+      child: Center(
+        child: Text(
+          buttonText,
+          style: TextStyle(color: textColor,fontSize: 35),
+        ),
+      )
     );
   }
 }

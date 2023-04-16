@@ -1,6 +1,7 @@
 
 import 'package:calcul/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:function_tree/function_tree.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -54,10 +55,15 @@ class _HomePageState extends State<HomePage> {
                         // alignment: Alignment.centerLeft,
                         child: Text(
                           userQuestion,
+                          style: TextStyle(fontSize: 30, color: Colors.grey),
+
                         )),
                     Container(
                         // alignment: Alignment.centerRight,
-                        child: Text(userAnswer)),
+                        child: Text(userAnswer,
+                          style: TextStyle(fontSize: 30, color: Colors.grey),
+
+                        )),
                   ],
                 ),
               ),
@@ -67,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               child: Divider(color: Colors.grey[900], thickness: 2),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Container(
                 child: GridView.builder(
                   itemCount: buttons.length,
@@ -85,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                         buttonTapeed: () {
                           setState(() {
                             userQuestion ='';
+                            userAnswer ='';
                           });
                         },
                       );
@@ -93,6 +100,12 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.grey,
                         textColor: Colors.black,
                         buttonText: buttons[i],
+                         buttonTapeed: (){
+                          setState(() {
+                            userAnswer = userQuestion.interpret().toString();
+                          });
+
+                         },
                       );
                     } else {
                       return MyButton(
