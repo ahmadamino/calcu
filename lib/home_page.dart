@@ -82,6 +82,11 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.grey[900],
                         textColor: Colors.red,
                         buttonText: buttons[i],
+                        buttonTapeed: () {
+                          setState(() {
+                            userQuestion ='';
+                          });
+                        },
                       );
                     } else if (i == 19) {
                       return MyButton(
